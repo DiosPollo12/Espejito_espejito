@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de compras | Espejito Espejito</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../Imagenes/Espejito.png" alt="Logo de Espejito Espejito" class="logo">
+            <h1>Tu Carrito</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-hero">
+            <div class="product-image">
+                <img src="../Imagenes/Espejito_referencia.png" alt="Espejo Inteligente">
+            </div>
+            <div class="product-info">
+                <h2>Espejito Espejito</h2>
+                <p>Precio unitario: $7,000 MXN</p>
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" value="1" min="1" style="width: 60px; margin-left: 10px;">
+                <p class="price" id="total">Total: $7,000 MXN</p>
+                <a href="Confrimacion_pago.html" class="btn">Finalizar compra</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Espejito Espejito. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const input = document.getElementById('cantidad');
+        const total = document.getElementById('total');
+        const precioUnitario = 7000;
+
+        function actualizarTotal() {
+            const cantidad = parseInt(input.value);
+            const totalCalculado = cantidad * precioUnitario;
+            total.textContent = `Total: $${totalCalculado.toLocaleString()} MXN`;
+
+            // Guardar en localStorage
+            localStorage.setItem('cantidad', cantidad);
+            localStorage.setItem('total', totalCalculado);
+        }
+
+        input.addEventListener('input', actualizarTotal);
+
+        // Inicializar si hay datos guardados
+        document.addEventListener('DOMContentLoaded', () => {
+            const cantidadGuardada = localStorage.getItem('cantidad');
+            if (cantidadGuardada) {
+                input.value = cantidadGuardada;
+                actualizarTotal();
+            }
+        });
+    </script>
+</body>
+</html>

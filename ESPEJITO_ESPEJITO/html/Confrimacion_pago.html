@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmación de Compra</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../Imagenes/Espejito.png" alt="Logo de Espejito Espejito" class="logo">
+            <h1>Confirmar Pedido</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-details">
+            <h2>Resumen del pedido</h2>
+            <ul>
+                <li><strong>Producto:</strong> Espejito Espejito</li>
+                <li><strong>Cantidad:</strong> <span id="cantidad">1</span></li>
+                <li><strong>Envío:</strong> Gratis</li>
+                <li><strong>Total:</strong> $<span id="total">7000</span> MXN</li>
+            </ul>
+        </section>
+
+        <section class="cta-final">
+            <h2>¿Estás listo para completar tu pedido?</h2>
+            <a href="Pagina_de_Exito.html" class="btn btn-large">Confirmar y pagar</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Espejito Espejito. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cantidad = localStorage.getItem('cantidad') || 1;
+            const total = localStorage.getItem('total') || 7000;
+            document.getElementById('cantidad').textContent = cantidad;
+            document.getElementById('total').textContent = parseInt(total).toLocaleString();
+        });
+    </script>
+</body>
+</html>

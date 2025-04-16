@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gracias por tu compra</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../Imagenes/Espejito.png" alt="Logo de Espejito Espejito" class="logo">
+        </div>
+    </header>
+
+    <main>
+        <section class="cta-final">
+            <h2>🎉 ¡Gracias por tu compra!</h2>
+            <p>Tu pedido ha sido confirmado. En breve recibirás un correo con los detalles de envío.</p>
+            <a href="index.html" class="btn">Volver a inicio</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Espejito Espejito. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Limpiar el carrito después de comprar
+        localStorage.removeItem('cantidad');
+        localStorage.removeItem('total');
+    </script>
+</body>
+</html>
